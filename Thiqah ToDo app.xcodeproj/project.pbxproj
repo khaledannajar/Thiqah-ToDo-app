@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2972E52F1E95F45D0047C3E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2972E52E1E95F45D0047C3E5 /* AppDelegate.swift */; };
+		2972E5341E95F45D0047C3E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2972E5321E95F45D0047C3E5 /* Main.storyboard */; };
+		2972E5391E95F45D0047C3E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2972E5381E95F45D0047C3E5 /* Assets.xcassets */; };
+		2972E53C1E95F45D0047C3E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2972E53A1E95F45D0047C3E5 /* LaunchScreen.storyboard */; };
+		299750421E95F725008FDE3B /* Thiqah_ToDo_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 299750401E95F725008FDE3B /* Thiqah_ToDo_app.xcdatamodeld */; };
+		299750441E95F73D008FDE3B /* DBInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299750431E95F73D008FDE3B /* DBInteractor.swift */; };
+		2997504F1E961A8F008FDE3B /* TodosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2997504E1E961A8F008FDE3B /* TodosTableViewController.swift */; };
+		299750511E962314008FDE3B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299750501E962314008FDE3B /* TodoViewController.swift */; };
+		299750541E964651008FDE3B /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299750531E964651008FDE3B /* UIHelpers.swift */; };
+		72DED29EDD6E5D3ECBE78F94 /* Pods_Thiqah_ToDo_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1473FBE891F41DAA15C620C /* Pods_Thiqah_ToDo_app.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		05030D7C4BEBFCB8E9666CF3 /* Pods-Thiqah ToDo app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thiqah ToDo app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thiqah ToDo app/Pods-Thiqah ToDo app.debug.xcconfig"; sourceTree = "<group>"; };
+		2972E52B1E95F45D0047C3E5 /* Thiqah ToDo app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Thiqah ToDo app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2972E52E1E95F45D0047C3E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2972E5331E95F45D0047C3E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2972E5381E95F45D0047C3E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2972E53B1E95F45D0047C3E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2972E53D1E95F45D0047C3E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		299750411E95F725008FDE3B /* Thiqah_ToDo_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Thiqah_ToDo_app.xcdatamodel; sourceTree = "<group>"; };
+		299750431E95F73D008FDE3B /* DBInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBInteractor.swift; sourceTree = "<group>"; };
+		2997504E1E961A8F008FDE3B /* TodosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodosTableViewController.swift; sourceTree = "<group>"; };
+		299750501E962314008FDE3B /* TodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		299750531E964651008FDE3B /* UIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
+		4EE912D9113395CBCBCCDA90 /* Pods-Thiqah ToDo app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thiqah ToDo app.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thiqah ToDo app/Pods-Thiqah ToDo app.release.xcconfig"; sourceTree = "<group>"; };
+		C1473FBE891F41DAA15C620C /* Pods_Thiqah_ToDo_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thiqah_ToDo_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2972E5281E95F45D0047C3E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72DED29EDD6E5D3ECBE78F94 /* Pods_Thiqah_ToDo_app.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2972E5221E95F45D0047C3E5 = {
+			isa = PBXGroup;
+			children = (
+				2972E52D1E95F45D0047C3E5 /* Thiqah ToDo app */,
+				2972E52C1E95F45D0047C3E5 /* Products */,
+				389B982DA9709E0A101826DF /* Pods */,
+				7E34BEA4DA835EE4E091BD12 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2972E52C1E95F45D0047C3E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2972E52B1E95F45D0047C3E5 /* Thiqah ToDo app.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2972E52D1E95F45D0047C3E5 /* Thiqah ToDo app */ = {
+			isa = PBXGroup;
+			children = (
+				2972E52E1E95F45D0047C3E5 /* AppDelegate.swift */,
+				2997504D1E961A8F008FDE3B /* controllers */,
+				2997504A1E9618C6008FDE3B /* views */,
+				2972E5381E95F45D0047C3E5 /* Assets.xcassets */,
+				2972E53D1E95F45D0047C3E5 /* Info.plist */,
+				299750521E96460F008FDE3B /* helpers */,
+				299750451E95F7FE008FDE3B /* models */,
+				2997503F1E95F725008FDE3B /* persistance */,
+			);
+			path = "Thiqah ToDo app";
+			sourceTree = "<group>";
+		};
+		2997503F1E95F725008FDE3B /* persistance */ = {
+			isa = PBXGroup;
+			children = (
+				299750401E95F725008FDE3B /* Thiqah_ToDo_app.xcdatamodeld */,
+				299750431E95F73D008FDE3B /* DBInteractor.swift */,
+			);
+			path = persistance;
+			sourceTree = "<group>";
+		};
+		299750451E95F7FE008FDE3B /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		2997504A1E9618C6008FDE3B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				2972E5321E95F45D0047C3E5 /* Main.storyboard */,
+				2972E53A1E95F45D0047C3E5 /* LaunchScreen.storyboard */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		2997504D1E961A8F008FDE3B /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2997504E1E961A8F008FDE3B /* TodosTableViewController.swift */,
+				299750501E962314008FDE3B /* TodoViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		299750521E96460F008FDE3B /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				299750531E964651008FDE3B /* UIHelpers.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		389B982DA9709E0A101826DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05030D7C4BEBFCB8E9666CF3 /* Pods-Thiqah ToDo app.debug.xcconfig */,
+				4EE912D9113395CBCBCCDA90 /* Pods-Thiqah ToDo app.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7E34BEA4DA835EE4E091BD12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1473FBE891F41DAA15C620C /* Pods_Thiqah_ToDo_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2972E52A1E95F45D0047C3E5 /* Thiqah ToDo app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2972E5401E95F45D0047C3E5 /* Build configuration list for PBXNativeTarget "Thiqah ToDo app" */;
+			buildPhases = (
+				F57376D55B959BF56A8BC327 /* [CP] Check Pods Manifest.lock */,
+				2972E5271E95F45D0047C3E5 /* Sources */,
+				2972E5281E95F45D0047C3E5 /* Frameworks */,
+				2972E5291E95F45D0047C3E5 /* Resources */,
+				1FA93246A1338A46256BC957 /* [CP] Embed Pods Frameworks */,
+				4836C91C2522DEFB5B4CEAEA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Thiqah ToDo app";
+			productName = "Thiqah ToDo app";
+			productReference = 2972E52B1E95F45D0047C3E5 /* Thiqah ToDo app.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2972E5231E95F45D0047C3E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = mycompany;
+				TargetAttributes = {
+					2972E52A1E95F45D0047C3E5 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2972E5261E95F45D0047C3E5 /* Build configuration list for PBXProject "Thiqah ToDo app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2972E5221E95F45D0047C3E5;
+			productRefGroup = 2972E52C1E95F45D0047C3E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2972E52A1E95F45D0047C3E5 /* Thiqah ToDo app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2972E5291E95F45D0047C3E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2972E53C1E95F45D0047C3E5 /* LaunchScreen.storyboard in Resources */,
+				2972E5391E95F45D0047C3E5 /* Assets.xcassets in Resources */,
+				2972E5341E95F45D0047C3E5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FA93246A1338A46256BC957 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thiqah ToDo app/Pods-Thiqah ToDo app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4836C91C2522DEFB5B4CEAEA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thiqah ToDo app/Pods-Thiqah ToDo app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F57376D55B959BF56A8BC327 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2972E5271E95F45D0047C3E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				299750511E962314008FDE3B /* TodoViewController.swift in Sources */,
+				2972E52F1E95F45D0047C3E5 /* AppDelegate.swift in Sources */,
+				299750441E95F73D008FDE3B /* DBInteractor.swift in Sources */,
+				299750541E964651008FDE3B /* UIHelpers.swift in Sources */,
+				299750421E95F725008FDE3B /* Thiqah_ToDo_app.xcdatamodeld in Sources */,
+				2997504F1E961A8F008FDE3B /* TodosTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2972E5321E95F45D0047C3E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2972E5331E95F45D0047C3E5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2972E53A1E95F45D0047C3E5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2972E53B1E95F45D0047C3E5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2972E53E1E95F45D0047C3E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2972E53F1E95F45D0047C3E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2972E5411E95F45D0047C3E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05030D7C4BEBFCB8E9666CF3 /* Pods-Thiqah ToDo app.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Thiqah ToDo app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mycompany.Thiqah-ToDo-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2972E5421E95F45D0047C3E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EE912D9113395CBCBCCDA90 /* Pods-Thiqah ToDo app.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Thiqah ToDo app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mycompany.Thiqah-ToDo-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2972E5261E95F45D0047C3E5 /* Build configuration list for PBXProject "Thiqah ToDo app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2972E53E1E95F45D0047C3E5 /* Debug */,
+				2972E53F1E95F45D0047C3E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2972E5401E95F45D0047C3E5 /* Build configuration list for PBXNativeTarget "Thiqah ToDo app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2972E5411E95F45D0047C3E5 /* Debug */,
+				2972E5421E95F45D0047C3E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		299750401E95F725008FDE3B /* Thiqah_ToDo_app.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				299750411E95F725008FDE3B /* Thiqah_ToDo_app.xcdatamodel */,
+			);
+			currentVersion = 299750411E95F725008FDE3B /* Thiqah_ToDo_app.xcdatamodel */;
+			path = Thiqah_ToDo_app.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2972E5231E95F45D0047C3E5 /* Project object */;
+}

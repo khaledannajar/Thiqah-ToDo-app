@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -163,14 +162,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HHd-KD-CfP">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="FEW-kf-DLt">
-                                <connections>
-                                    <action selector="addNewTodoTapped:" destination="tso-T3-GRq" id="4zT-bm-B7h"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="edit" id="SNu-A6-9gD"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FEW-kf-DLt">
+                            <connections>
+                                <action selector="addNewTodoTapped:" destination="tso-T3-GRq" id="4zT-bm-B7h"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="2Vq-HU-8tX" id="04A-RO-SZe"/>

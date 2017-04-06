@@ -24,8 +24,10 @@ class TodosTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-        
+//        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        var items = self.navigationItem.rightBarButtonItems
+        items?.append(self.editButtonItem)
+        self.navigationItem.rightBarButtonItems = items
         todosViewModel = TodosViewModel(todosView: self)
         
         setupPullToRefresh()

@@ -75,6 +75,7 @@
 			children = (
 				2972E52E1E95F45D0047C3E5 /* AppDelegate.swift */,
 				2997504D1E961A8F008FDE3B /* controllers */,
+				299750591E96D6FA008FDE3B /* ViewModels */,
 				2997504A1E9618C6008FDE3B /* views */,
 				2972E5381E95F45D0047C3E5 /* Assets.xcassets */,
 				2972E53D1E95F45D0047C3E5 /* Info.plist */,
@@ -115,7 +116,6 @@
 			children = (
 				2997504E1E961A8F008FDE3B /* TodosTableViewController.swift */,
 				299750501E962314008FDE3B /* TodoViewController.swift */,
-				299750551E96C1CE008FDE3B /* TodosViewModel.swift */,
 				299750571E96D16D008FDE3B /* TodosCollectionViewController.swift */,
 			);
 			path = controllers;
@@ -127,6 +127,15 @@
 				299750531E964651008FDE3B /* UIHelpers.swift */,
 			);
 			path = helpers;
+			sourceTree = "<group>";
+		};
+		299750591E96D6FA008FDE3B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				299750551E96C1CE008FDE3B /* TodosViewModel.swift */,
+			);
+			name = ViewModels;
+			path = controllers;
 			sourceTree = "<group>";
 		};
 		389B982DA9709E0A101826DF /* Pods */ = {

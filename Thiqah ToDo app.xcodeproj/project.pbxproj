@@ -16,6 +16,7 @@
 		2997504F1E961A8F008FDE3B /* TodosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2997504E1E961A8F008FDE3B /* TodosTableViewController.swift */; };
 		299750511E962314008FDE3B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299750501E962314008FDE3B /* TodoViewController.swift */; };
 		299750541E964651008FDE3B /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299750531E964651008FDE3B /* UIHelpers.swift */; };
+		299750561E96C1CE008FDE3B /* TodosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299750551E96C1CE008FDE3B /* TodosViewModel.swift */; };
 		72DED29EDD6E5D3ECBE78F94 /* Pods_Thiqah_ToDo_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1473FBE891F41DAA15C620C /* Pods_Thiqah_ToDo_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		2997504E1E961A8F008FDE3B /* TodosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodosTableViewController.swift; sourceTree = "<group>"; };
 		299750501E962314008FDE3B /* TodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		299750531E964651008FDE3B /* UIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
+		299750551E96C1CE008FDE3B /* TodosViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodosViewModel.swift; sourceTree = "<group>"; };
 		4EE912D9113395CBCBCCDA90 /* Pods-Thiqah ToDo app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thiqah ToDo app.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thiqah ToDo app/Pods-Thiqah ToDo app.release.xcconfig"; sourceTree = "<group>"; };
 		C1473FBE891F41DAA15C620C /* Pods_Thiqah_ToDo_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thiqah_ToDo_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 			children = (
 				2997504E1E961A8F008FDE3B /* TodosTableViewController.swift */,
 				299750501E962314008FDE3B /* TodoViewController.swift */,
+				299750551E96C1CE008FDE3B /* TodosViewModel.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				299750511E962314008FDE3B /* TodoViewController.swift in Sources */,
+				299750561E96C1CE008FDE3B /* TodosViewModel.swift in Sources */,
 				2972E52F1E95F45D0047C3E5 /* AppDelegate.swift in Sources */,
 				299750441E95F73D008FDE3B /* DBInteractor.swift in Sources */,
 				299750541E964651008FDE3B /* UIHelpers.swift in Sources */,

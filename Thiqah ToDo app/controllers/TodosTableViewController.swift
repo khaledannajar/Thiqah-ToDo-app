@@ -13,12 +13,12 @@ let todosUpdatedNotificationName = Notification.Name("todosUpdatedNotificationNa
 
 class TodosTableViewController: UITableViewController {
 
-    var todos = [TODO]()
-    var selectedTodo: TODO?
+    var todosViewModel: TodosViewable?
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
-        loadDataFromLocalDB();
+        askLoadData()
     }
     
     override func viewDidLoad() {
@@ -26,38 +26,20 @@ class TodosTableViewController: UITableViewController {
 
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-        setupPullToRefresh()
-        registerForUpdatesNotifications()
+        todosViewModel = TodosViewModel(todosView: self)
         
+        setupPullToRefresh()
     }
     
     func setupPullToRefresh() {
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(loadDataFromLocalDB), for: .valueChanged)
-    }
-    
-    func registerForUpdatesNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(todosUpdated), name: todosUpdatedNotificationName, object: nil)
-    }
-    
-    func todosUpdated(){
-        
-        loadDataFromLocalDB()
-    }
-    
-    func loadDataFromLocalDB() {
-        
-        CoreDBInteractor.shared.fetchTODOs(successBlock: { (fetchedTodos) in
-            self.todos.removeAll()
-            self.todos.append(contentsOf: fetchedTodos)
-            self.refreshControl?.endRefreshing()
-            self.tableView.reloadData()
-            
-        }) { (error) in
-            AlertHelper.displayAlert(title: "Error", message: error.localizedDescription, inViewController: self)
-        }
+        self.refreshControl?.addTarget(self, action: #selector(askLoadData), for: .valueChanged)
     }
 
+    func askLoadData() {
+        todosViewModel?.loadTodos()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,16 +49,28 @@ class TodosTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return todos.count
+        return todosViewModel!.todosCount()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        let todoObj =  todos[indexPath.row]
-        cell.textLabel?.text = todoObj.title
+        let todoObj = todosViewModel?.getTodo(at: indexPath.row)
+        cell.textLabel?.text = todoObj?.title
 
         return cell
+    }
+}
+
+// MARK: - MVVM functions
+extension TodosTableViewController: TodosView {
+    func display(error: String) {
+        AlertHelper.displayAlert(title: "Error", message: error, inViewController: self)
+    }
+    
+    func reloadData() {
+        self.refreshControl?.endRefreshing()
+        self.tableView.reloadData()
     }
 }
 
@@ -86,12 +80,12 @@ extension TodosTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.selectedTodo = todos[indexPath.row]
+        todosViewModel?.updateTodo(at: indexPath.row)
         self.performSegue(withIdentifier: "TODOEdit", sender: self)
     }
     
     @IBAction func addNewTodoTapped(_ sender: Any) {
-        self.selectedTodo = nil
+        todosViewModel?.createNewTodo()
         self.performSegue(withIdentifier: "TODOEdit", sender: self)
     }
     
@@ -102,7 +96,7 @@ extension TodosTableViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "TODOEdit" {
             if let editTodoVC = segue.destination as? TodoViewController {
-                editTodoVC.todo = self.selectedTodo
+                editTodoVC.todo = todosViewModel?.getEditableTodo()
             }
         }
     }
@@ -122,8 +116,7 @@ extension TodosTableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            CoreDBInteractor.shared.remove(removeObject: self.todos[indexPath.row])
-            self.todos.remove(at: indexPath.row)
+            todosViewModel?.removeTodo(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

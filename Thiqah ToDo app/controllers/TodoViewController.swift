@@ -37,7 +37,8 @@ class TodoViewController: UIViewController {
         }
         
         if todo == nil {
-            CoreDBInteractor.shared.createTODOObject(successBlock: { (todo) in
+            DBInteractor.shared.createTODOObject(successBlock: { (todo) in
+                self.todo = todo
                 self.setData(inTodo: todo)
             })
         } else {
@@ -64,10 +65,8 @@ class TodoViewController: UIViewController {
     func setData(inTodo: TODO) {
         inTodo.title = titleTextField.text
         inTodo.notes = notesTextView.text
-//        CoreDBInteractor.shared.saveContext()
-        CoreDBInteractor.shared.saveContext { (error) in
-            AlertHelper.displayAlert(title: "Error", message: error, inViewController: self)
-        }
+        
+        DBInteractor.shared.save(todo: inTodo)
     }
     
     func oldDataChanged() -> Bool {

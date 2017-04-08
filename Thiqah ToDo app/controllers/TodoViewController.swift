@@ -65,6 +65,7 @@ class TodoViewController: UIViewController {
     func setData(inTodo: TODO) {
         inTodo.title = titleTextField.text
         inTodo.notes = notesTextView.text
+        inTodo.lastUpdated = Date().timeIntervalSince1970
         
         DBInteractor.shared.save(todo: inTodo)
     }

@@ -32,10 +32,8 @@ class DBInteractor {
         for todoDict in todoDicts {
             persistLocally(todoDict: todoDict)
         }
-        CoreDBInteractor.shared.saveContext(failureBlock: { (error) in
-            print(error)
-        })
-        NotificationCenter.default.post(name: todosUpdatedNotificationName, object: nil)
+        
+        //        NotificationCenter.default.post(name: todosUpdatedNotificationName, object: nil)
     }
     private func persistLocally(todoDict: [String : String]) {
         let title = todoDict[TodoKeys.titleKey.rawValue]
@@ -58,7 +56,7 @@ class DBInteractor {
     
     func fetchTODOs(successBlock: @escaping (_ todos: [TODO]) ->(), failureBlock: @escaping (_ error: Error)->()) {
         local.fetchTODOs(successBlock: successBlock, failureBlock: failureBlock)
-//        cloud.fetchTodos()
+        
         cloud.loadData { (todos: [[String : String]]) in
             self.persistLocally(todoDicts: todos)
         }
@@ -82,29 +80,18 @@ class DBInteractor {
 }
 
 
-class CoreDBInteractor {
+fileprivate class CoreDBInteractor {
     static let shared = CoreDBInteractor()
     
     private var backgroundContext: NSManagedObjectContext?
     
     func createTODOObject(successBlock: @escaping (_ todo: TODO) ->()) {
-
+        
         backgroundContext?.perform {
             let todoObject = TODO(context: self.backgroundContext!)
             successBlock(todoObject)
         }
     }
-    
-//    func saveBackgroundcontext(failureBlock: @escaping (_ error: String)->()) {
-//        do {
-//            if let backgroundContext = backgroundContext, backgroundContext.hasChanges {
-//                try backgroundContext.save()
-//                freeMemory(in: backgroundContext)
-//            }
-//        } catch {
-//            failureBlock("Failed to save data")
-//        }
-//    }
     
     func fetchTODOs(successBlock: @escaping (_ todos: [TODO]) ->(), failureBlock: @escaping (_ error: Error)->()) {
         persistentContainer.viewContext.perform {
@@ -117,7 +104,6 @@ class CoreDBInteractor {
             } catch {
                 failureBlock(error)
             }
-
         }
     }
     
@@ -160,23 +146,23 @@ class CoreDBInteractor {
     
     func saveContext(failureBlock: @escaping (_ error: String)->()) {
         
-            do {
-                let viewContext = persistentContainer.viewContext
-                if viewContext.hasChanges{
-                    try viewContext.save()
-                    freeMemory(in: viewContext)
-                }
-                if let backgroundContext = backgroundContext, backgroundContext.hasChanges {
-                    try backgroundContext.save()
-                    freeMemory(in: backgroundContext)
-                }
-                
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        do {
+            let viewContext = persistentContainer.viewContext
+            if viewContext.hasChanges{
+                try viewContext.save()
+                freeMemory(in: viewContext)
             }
+            if let backgroundContext = backgroundContext, backgroundContext.hasChanges {
+                try backgroundContext.save()
+                freeMemory(in: backgroundContext)
+            }
+            
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
         
     }
     
@@ -195,12 +181,12 @@ fileprivate class firDBInteractor {
     
     func todoDictionary(todo: TODO) -> [String : String] {
         
-        let titleKey = "title"
-        let noteKey = "note"
-        var dict = [titleKey : todo.title!]
+        var dict = [TodoKeys.titleKey.rawValue : todo.title!]
         if todo.notes != nil {
-            dict[noteKey] = todo.notes!
+            dict[TodoKeys.noteKey.rawValue] = todo.notes!
         }
+        dict[TodoKeys.updatedTimeKey.rawValue] = String(todo.lastUpdated)
+        
         return dict
     }
     
@@ -208,35 +194,13 @@ fileprivate class firDBInteractor {
         todosNode.child(todoId).removeValue()
     }
     
-//    func fetchTodos() {
-//    
-//        todosNode.queryOrderedByKey().observe(.childAdded) { (snapshot: FIRDataSnapshot) in
-//            let title = snapshot.value(forKey: TodoKeys.titleKey.rawValue)
-//            let notes = snapshot.value(forKey: TodoKeys.noteKey.rawValue)
-//            let lastUpdated = snapshot.value(forKey: TodoKeys.updatedTimeKey.rawValue)
-//            //            snapshot.key
-//            var dict = [String : String]()
-//            if let title = title as? String {
-//                dict[TodoKeys.titleKey.rawValue] = title
-//            }
-//            
-//            if let notes = notes as? String {
-//                dict[TodoKeys.noteKey.rawValue] = notes
-//            }
-//            if let lastUpdated = lastUpdated as? String {
-//                dict[TodoKeys.noteKey.rawValue] = lastUpdated
-//            }
-//            dict[TodoKeys.idKey.rawValue] = snapshot.key
-//            DBInteractor.shared.persistLocally(todoDicts: [dict])
-//        }
-//    }
-    
     func loadData(successBlock: @escaping (_ todos:  [[String : String]]) ->()) {
         
         var results = [[String : String]]()
         todosNode.observeSingleEvent(of: .value, with: { (snapshot) in
+            
             if let todoDict = snapshot.value as? [String:AnyObject] {
-                for (_,todoElement) in todoDict {
+                for (key ,todoElement) in todoDict {
                     
                     print(todoElement);
                     
@@ -255,7 +219,9 @@ fileprivate class firDBInteractor {
                     if let lastUpdated = lastUpdated as? String {
                         dict[TodoKeys.noteKey.rawValue] = lastUpdated
                     }
-
+                    
+                    dict[TodoKeys.idKey.rawValue] = key
+                    
                     results.append(dict)
                 }
                 successBlock(results)
@@ -263,7 +229,7 @@ fileprivate class firDBInteractor {
             
             
         }) { (error) in
-//            print(error.localizedDescription)
+            print(error.localizedDescription)
         }
         
     }
@@ -301,34 +267,6 @@ fileprivate class firDBInteractor {
                     cloudTodo.setValue(todo.lastUpdated, forKey: TodoKeys.updatedTimeKey.rawValue)
                 }
             }
-//            todosNode.queryEqual(toValue: todo.id!).observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
-//                
-//                let title = snapshot.value(forKey: TodoKeys.titleKey.rawValue)
-//                let notes = snapshot.value(forKey: TodoKeys.noteKey.rawValue)
-//                let timestamp = snapshot.value(forKey: TodoKeys.updatedTimeKey.rawValue)
-//                if let timestamp = timestamp as? String, let cloudLastUpdated = Double(timestamp) {
-//                    
-//                    if cloudLastUpdated == todo.lastUpdated {
-//                        return
-//                    } else if cloudLastUpdated > todo.lastUpdated {
-//                        todo.title = title as? String
-//                        todo.notes = notes as? String
-//                        todo.lastUpdated = cloudLastUpdated
-//                        
-//                    } else if cloudLastUpdated < todo.lastUpdated {
-//                        
-//                    }
-//                }
-//            
-//            })
-
-            //            todosNode.queryOrderedByKey().observe(FIRDataEventType.childAdded, with: { (snapshot) in
-            //
-            ////                let title = snapshot.value!["title"]
-            //
-            //            })
-            //            check date of update if in core data is latest update it in firebase
-            //            else get the updates from firebase to core data
         }
         
     }

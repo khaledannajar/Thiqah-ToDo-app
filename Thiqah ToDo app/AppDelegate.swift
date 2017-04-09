@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-//        FIRApp.configure()
-        
+        FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
+
         return true
     }
 
@@ -45,11 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         
-        CoreDBInteractor.shared.saveContext { (error) in
-            if let controller = self.window?.rootViewController {
-                AlertHelper.displayAlert(title: "Error", message: error, inViewController: controller)
-            }
-        }
+        DBInteractor.shared.syncLocalDB()
+
     }
 }
 

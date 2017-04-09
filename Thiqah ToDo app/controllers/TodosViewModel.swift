@@ -49,7 +49,8 @@ class TodosViewModel: TodosViewable {
     
     func loadDataFromLocalDB() {
         
-        CoreDBInteractor.shared.fetchTODOs(successBlock: { (fetchedTodos) in
+        DBInteractor.shared.fetchTODOs(successBlock: { (fetchedTodos) in
+        
             self.todos.removeAll()
             self.todos.append(contentsOf: fetchedTodos)
             
@@ -82,7 +83,7 @@ class TodosViewModel: TodosViewable {
         return self.selectedTodo
     }
     func removeTodo(at index: Int) {
-        CoreDBInteractor.shared.remove(removeObject: self.todos[index])
+        DBInteractor.shared.remove(todo: self.todos[index])
         self.todos.remove(at: index)
     }
 }

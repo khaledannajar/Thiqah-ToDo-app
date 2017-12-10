@@ -176,8 +176,8 @@ fileprivate class CoreDBInteractor {
 fileprivate class firDBInteractor {
     static let shared = firDBInteractor()
     
-    var dbRef: FIRDatabaseReference = FIRDatabase.database().reference()
-    let todosNode = FIRDatabase.database().reference().child("Todos")
+    var dbRef: DatabaseReference = Database.database().reference()
+    let todosNode = Database.database().reference().child("Todos")
     
     func todoDictionary(todo: TODO) -> [String : String] {
         

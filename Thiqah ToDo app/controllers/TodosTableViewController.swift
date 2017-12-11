@@ -38,7 +38,7 @@ class TodosTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: #selector(askLoadData), for: .valueChanged)
     }
 
-    func askLoadData() {
+    @objc func askLoadData() {
         todosViewModel?.loadTodos()
     }
     

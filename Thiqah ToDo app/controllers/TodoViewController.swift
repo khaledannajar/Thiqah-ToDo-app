@@ -57,7 +57,7 @@ class TodoViewController: UIViewController {
     }
     
     func isValidData() -> Bool {
-        return titleTextField.text!.characters.count > 0
+        return titleTextField.text!.count > 0
     }
     
     func setData(inTodo: TODO) {
